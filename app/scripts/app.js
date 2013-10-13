@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('hydrationApp', [])
+angular.module('hydrationApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
