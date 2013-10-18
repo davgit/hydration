@@ -20,8 +20,17 @@ table {
   height: 100%;
 
   td {
+    vertical-align: top;
     &.footer {
       height: 90px;
     }
+  }
+}
+
+.scale {
+  height: 100%;
+
+  & > div {
+
   }
 }
