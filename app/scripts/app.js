@@ -3,9 +3,12 @@
 angular.module('hydrationApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/', {
+        templateUrl: 'views/blank.html'
       })
       .otherwise({
         redirectTo: '/'
