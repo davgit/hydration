@@ -14,23 +14,8 @@ body {
   font-weight: 200;
 }
 
-table {
-  width: 100%;
-  border-collapse:collapse;
-  height: 100%;
-
-  td {
-    vertical-align: top;
-    &.footer {
-      height: 90px;
-    }
-  }
-}
-
-.scale {
-  height: 100%;
-
-  & > div {
-
-  }
+div.mainScreen {
+  position: absolute;
+  top: 0; bottom: 40px; left: 0; right: 0;
+  background-color: red;
 }
