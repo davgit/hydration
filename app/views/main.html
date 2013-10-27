@@ -1,7 +1,10 @@
-<div class="mainScreen">
-    <svg axes amount-bar></svg>
-</div>
-<div class="actions">
-    <button>Large Glass</button>
-    <button>Small Glass</button>
+<div ng-init="amount = 10">
+    <div class="mainScreen">
+        <svg axes amount-bar></svg>
+    </div>
+    <div class="actions">
+        <button ng-click="amount = (amount + 20)%100;">Large Glass</button>
+        <button>Small Glass</button>
+        {{ amount }}
+    </div>
 </div>
