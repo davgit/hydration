@@ -9,7 +9,7 @@ angular.module('hydrationApp')
         var height = element[0].offsetHeight;
         var width = element[0].offsetWidth;
 
-        var svg = d3.select("svg");
+        var svg = d3.select(element[0]);
 
         var left_scale = d3.scale.linear()
           .domain([0, 100])

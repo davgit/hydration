@@ -12,9 +12,14 @@ body {
   font-weight: 100;
 }
 
+svg {
+  height: 100%;
+  width: 100%;
+}
+
 div.mainScreen {
   position: absolute;
-  top: 0; bottom: 40px; left: 0; right: 0;
+  top: 0; bottom: 49px; left: 0; right: 0;
   // background-color: #b3d4fc;
 }
 
