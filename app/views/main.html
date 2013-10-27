@@ -1,6 +1,9 @@
 <div ng-init="amount = 0">
     <div class="mainScreen">
-        <svg amount-bar axes></svg>
+        <svg>
+            <g amount-bar></g>
+            <g axes></g>
+        </svg>
     </div>
     <div class="actions">
         <button ng-click="amount = (amount + 10)%110;">Large Glass</button>

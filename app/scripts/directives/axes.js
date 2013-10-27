@@ -6,10 +6,10 @@ angular.module('hydrationApp')
       // template: '<div class="mainScreen"><svg></svg></div>',
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        var height = element[0].offsetHeight;
-        var width = element[0].offsetWidth;
+        var height = document.getElementsByTagName("svg")[0].offsetHeight;
+        var width = document.getElementsByTagName("svg")[0].offsetWidth;
 
-        var svg = d3.select(element[0]);
+        var svg_g = d3.select(element[0]);
 
         var left_scale = d3.scale.linear()
           .domain([0, 100])
@@ -22,7 +22,7 @@ angular.module('hydrationApp')
           .outerTickSize(0)
           .orient("right");
 
-        var left_bar = svg.append("g")
+        var left_bar = svg_g.append("g")
           .attr("class", "left axis")
           .call(leftAxis);
 
@@ -40,7 +40,7 @@ angular.module('hydrationApp')
           .outerTickSize(0)
           .orient("left")
 
-        var right_bar = svg.append("g")
+        var right_bar = svg_g.append("g")
           .attr("transform", "translate("+width+", 0)")
           .attr("class", "right axis")
           .call(rightAxis)

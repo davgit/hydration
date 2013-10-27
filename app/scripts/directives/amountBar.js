@@ -5,10 +5,10 @@ angular.module('hydrationApp')
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        var height = element[0].offsetHeight;
-        var width = element[0].offsetWidth;
+        var height = document.getElementsByTagName("svg")[0].offsetHeight;
+        var width = document.getElementsByTagName("svg")[0].offsetWidth;
 
-        var svg = d3.select(element[0]);
+        var svg_g = d3.select(element[0]);
 
         var data = [20];
 
@@ -16,7 +16,7 @@ angular.module('hydrationApp')
           .domain([0, 100])
           .range([height, 0]);
 
-        svg.selectAll(".amountBar")
+        svg_g.selectAll(".amountBar")
           .data(data)
         .enter().append("rect")
           .attr("class", "amountBar")
@@ -27,7 +27,7 @@ angular.module('hydrationApp')
 
 
         scope.$watch("amount", function() {
-          svg.selectAll(".amountBar")
+          svg_g.selectAll(".amountBar")
             .data([scope.amount])
             .transition()
             .ease("quad-in-out")
