@@ -20,8 +20,8 @@ angular.module('hydrationApp')
           .data(data)
         .enter().append("rect")
           .attr("class", "amountBar")
-          .attr("x", 40)
-          .attr("width", width-40*2)
+          .attr("x", 0)
+          .attr("width", width)
           .attr("y", function(d) { return scale(d); })
           .attr("height", function(d) { return height - scale(d); });
 

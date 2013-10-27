@@ -27,7 +27,7 @@ angular.module('hydrationApp')
           .call(leftAxis);
 
         var start_date = new Date(2013, 9, 27, 7);
-        var end_date = new Date(2013, 9, 27, 11);
+        var end_date = new Date(2013, 9, 27, 21);
 
         var right_scale = d3.time.scale()
           .domain([start_date, end_date])
