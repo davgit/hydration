@@ -1,6 +1,4 @@
-$iconSpritePath: "../images/glyphicons-halflings.png";
-$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
-
+$grey: #6d6e73;
 
 html, body, .container{
   height: 100%;
@@ -11,11 +9,25 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 200;
+  font-weight: 100;
 }
 
 div.mainScreen {
   position: absolute;
   top: 0; bottom: 40px; left: 0; right: 0;
-  background-color: red;
+  // background-color: #b3d4fc;
+}
+
+.axis {
+  font-size: 14pt;
+  color: $grey;
+
+  text {
+    fill: $grey;
+  }
+
+  line, path {
+    fill: none;
+    stroke: $grey;
+  }
 }
