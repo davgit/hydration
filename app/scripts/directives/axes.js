@@ -1,17 +1,15 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .directive('mainScreen', function () {
+  .directive('axes', function () {
     return {
-      template: '<div class="mainScreen"></div>',
+      // template: '<div class="mainScreen"><svg></svg></div>',
       restrict: 'A',
-      replace: true,
       link: function postLink(scope, element, attrs) {
         var height = element[0].offsetHeight;
         var width = element[0].offsetWidth;
 
-        var svg = d3.selectAll("div.mainScreen")
-          .append("svg");
+        var svg = d3.select("svg");
 
         var left_scale = d3.scale.linear()
           .domain([0, 100])

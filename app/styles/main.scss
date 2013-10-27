@@ -31,3 +31,18 @@ div.mainScreen {
     stroke: $grey;
   }
 }
+
+div.actions {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #105cb6;
+
+  button {
+    border: 1px solid #737373;
+    background-color: #cccccc;
+    font-size: 14px;
+    padding: 5px;
+    margin: 10px;
+  }
+}

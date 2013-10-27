@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: mainScreen', function () {
+describe('Directive: axes', function () {
 
   // load the directive's module
   beforeEach(module('hydrationApp'));
@@ -15,6 +15,6 @@ describe('Directive: mainScreen', function () {
   it('should make hidden element visible', inject(function ($compile) {
     element = angular.element('<main-screen></main-screen>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the mainScreen directive');
+    expect(element.text()).toBe('this is the axes directive');
   }));
 });
