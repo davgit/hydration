@@ -10,14 +10,12 @@ angular.module('hydrationApp')
 
         var svg_g = d3.select(element[0]);
 
-        var data = [20];
-
         var scale = d3.scale.linear()
           .domain([0, 100])
           .range([height, 0]);
 
         svg_g.selectAll(".amountBar")
-          .data(data)
+          .data([scope.amount])
         .enter().append("rect")
           .attr("class", "amountBar")
           .attr("x", 0)
