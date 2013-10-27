@@ -23,7 +23,6 @@ angular.module('hydrationApp')
           .attr("y", function(d) { return scale(d); })
           .attr("height", function(d) { return height - scale(d); });
 
-
         scope.$watch("amount", function() {
           svg_g.selectAll(".amountBar")
             .data([scope.amount])
