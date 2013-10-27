@@ -27,7 +27,7 @@ angular.module('hydrationApp')
           .call(leftAxis);
 
         var start_date = new Date(2013, 9, 27, 7);
-        var end_date = new Date(2013, 9, 27, 21);
+        var end_date = new Date(2013, 9, 27, 19);
 
         var right_scale = d3.time.scale()
           .domain([start_date, end_date])
@@ -37,6 +37,9 @@ angular.module('hydrationApp')
           .scale(right_scale)
           .tickPadding(5)
           .tickValues(right_scale.ticks().slice(1, -1))
+          .tickFormat(function(d) {
+            return d3.time.format('%I:%M')(d).replace(/^[0]+/g,"");;
+          })
           .outerTickSize(0)
           .orient("left")
 
