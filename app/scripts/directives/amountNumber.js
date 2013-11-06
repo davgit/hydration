@@ -8,10 +8,7 @@ angular.module('hydrationApp')
     };
 
     var time_display = function(amount) {
-      if (amount > 0) {
-        return tools.date_format(scales.time_scale.invert(scales.linear_scale(amount)));
-      }
-      return "";
+      return tools.date_format(scales.time_scale.invert(scales.linear_scale(amount)));
     };
 
     return {
