@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .service('Scales', function Scales() {
+  .service('scales', function scales() {
     var height = document.getElementsByTagName("svg")[0].offsetHeight;
 
     var start_date = new Date(2013, 9, 27, 7);

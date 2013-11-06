@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .directive('axes', function (Scales, tools) {
+  .directive('axes', function (scales, tools) {
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
@@ -10,9 +10,9 @@ angular.module('hydrationApp')
         var svg_g = d3.select(element[0]);
 
         var leftAxis = d3.svg.axis()
-          .scale(Scales.linear_scale)
+          .scale(scales.linear_scale)
           .tickPadding(5)
-          .tickValues(Scales.linear_scale.ticks().slice(1, -1))
+          .tickValues(scales.linear_scale.ticks().slice(1, -1))
           .outerTickSize(0)
           .orient("right");
 
@@ -21,9 +21,9 @@ angular.module('hydrationApp')
           .call(leftAxis);
 
         var rightAxis = d3.svg.axis()
-          .scale(Scales.time_scale)
+          .scale(scales.time_scale)
           .tickPadding(5)
-          .tickValues(Scales.time_scale.ticks().slice(1, -1))
+          .tickValues(scales.time_scale.ticks().slice(1, -1))
           .tickFormat(tools.date_format)
           .outerTickSize(0)
           .orient("left")
