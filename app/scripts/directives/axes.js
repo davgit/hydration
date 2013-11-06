@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .directive('axes', function (Scales) {
+  .directive('axes', function (Scales, tools) {
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
@@ -24,9 +24,7 @@ angular.module('hydrationApp')
           .scale(Scales.time_scale)
           .tickPadding(5)
           .tickValues(Scales.time_scale.ticks().slice(1, -1))
-          .tickFormat(function(d) {
-            return d3.time.format('%I:%M')(d).replace(/^[0]+/g,"");;
-          })
+          .tickFormat(tools.date_format)
           .outerTickSize(0)
           .orient("left")
 

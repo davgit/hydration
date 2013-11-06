@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .directive('amountNumber', function (Scales) {
+  .directive('amountNumber', function (Scales, tools) {
 
     var percentage_display = function(amount) {
       return Math.floor(amount) + "%";
@@ -9,10 +9,9 @@ angular.module('hydrationApp')
 
     var time_display = function(amount) {
       if (amount > 0) {
-        console.log(Scales.linear_scale(amount));
-        console.log(Scales.time_scale.invert(Scales.linear_scale(amount)));
+        return tools.date_format(Scales.time_scale.invert(Scales.linear_scale(amount)));
       }
-      return "time";
+      return "";
     };
 
     return {
