@@ -4,6 +4,9 @@ angular.module('hydrationApp')
   .directive('amountBar', function () {
     return {
       restrict: 'A',
+      scope: {
+        amount: '='
+      },
       link: function postLink(scope, element, attrs) {
         var height = document.getElementsByTagName("svg")[0].offsetHeight;
         var width = document.getElementsByTagName("svg")[0].offsetWidth;
