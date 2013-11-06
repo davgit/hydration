@@ -3,7 +3,6 @@
 angular.module('hydrationApp')
   .directive('axes', function () {
     return {
-      // template: '<div class="mainScreen"><svg></svg></div>',
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
         var height = document.getElementsByTagName("svg")[0].offsetHeight;
