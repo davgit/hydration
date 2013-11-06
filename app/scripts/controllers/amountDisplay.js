@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .controller('AmountnumberCtrl', function ($scope) {
+  .controller('AmountDisplayCtrl', function ($scope) {
 
     var display_styles = ['percentage_display', 'time_display'];
 

@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: AmountnumberCtrl', function () {
+describe('Controller: AmountDisplayCtrl', function () {
 
   // load the controller's module
   beforeEach(module('hydrationApp'));
 
-  var AmountnumberCtrl,
+  var AmountDisplayCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    AmountnumberCtrl = $controller('AmountnumberCtrl', {
+    AmountDisplayCtrl = $controller('AmountDisplayCtrl', {
       $scope: scope
     });
   }));
