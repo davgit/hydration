@@ -1,9 +1,9 @@
-<div ng-init="amount = 0">
+<div>
     <div class="mainScreen">
         <svg>
             <g amount-bar></g>
             <g axes></g>
-            <g amount-number></g>
+            <g amount-number amount="amount" ng-click="toggle_display()"></g>
         </svg>
     </div>
     <div class="actions">
