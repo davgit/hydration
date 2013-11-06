@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: amountNumber', function () {
+describe('Directive: amountDisplay', function () {
 
   // load the directive's module
   beforeEach(module('hydrationApp'));
@@ -13,8 +13,8 @@ describe('Directive: amountNumber', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<amount-number></amount-number>');
+    element = angular.element('<amount-display></amount-display>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the amountNumber directive');
+    expect(element.text()).toBe('this is the amountDisplay directive');
   }));
 });

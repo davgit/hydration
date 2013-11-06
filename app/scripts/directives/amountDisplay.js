@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .directive('amountNumber', function (scales, tools) {
+  .directive('amountDisplay', function (scales, tools) {
 
     var display_styles = {
       percentage_display: function(amount) {
@@ -24,21 +24,21 @@ angular.module('hydrationApp')
 
         var svg_g = d3.select(element[0]);
 
-        svg_g.selectAll(".amountNumber")
+        svg_g.selectAll(".amountDisplay")
           .data([scope.amount])
         .enter().append("text")
-          .attr("class", "amountNumber")
+          .attr("class", "amountDisplay")
           .attr("x", width/2)
           .attr("y", height/2)
           .attr("text-anchor", "middle");
 
         scope.$watch("current_display", function() {
-          svg_g.selectAll(".amountNumber")
+          svg_g.selectAll(".amountDisplay")
             .text(display_styles[scope.current_display](scope.amount));
         });
 
         scope.$watch("amount", function(new_val, old_val) {
-          svg_g.selectAll(".amountNumber")
+          svg_g.selectAll(".amountDisplay")
             .data([scope.amount])
             .transition()
             .ease("quad-in-out")
