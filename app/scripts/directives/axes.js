@@ -1,23 +1,18 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .directive('axes', function () {
+  .directive('axes', function (Scales) {
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        var height = document.getElementsByTagName("svg")[0].offsetHeight;
         var width = document.getElementsByTagName("svg")[0].offsetWidth;
 
         var svg_g = d3.select(element[0]);
 
-        var left_scale = d3.scale.linear()
-          .domain([0, 100])
-          .range([height, 0]);
-
         var leftAxis = d3.svg.axis()
-          .scale(left_scale)
+          .scale(Scales.linear_scale)
           .tickPadding(5)
-          .tickValues(left_scale.ticks().slice(1, -1))
+          .tickValues(Scales.linear_scale.ticks().slice(1, -1))
           .outerTickSize(0)
           .orient("right");
 
@@ -25,17 +20,10 @@ angular.module('hydrationApp')
           .attr("class", "left axis")
           .call(leftAxis);
 
-        var start_date = new Date(2013, 9, 27, 7);
-        var end_date = new Date(2013, 9, 27, 19);
-
-        var right_scale = d3.time.scale()
-          .domain([start_date, end_date])
-          .range([height, 0])
-
         var rightAxis = d3.svg.axis()
-          .scale(right_scale)
+          .scale(Scales.time_scale)
           .tickPadding(5)
-          .tickValues(right_scale.ticks().slice(1, -1))
+          .tickValues(Scales.time_scale.ticks().slice(1, -1))
           .tickFormat(function(d) {
             return d3.time.format('%I:%M')(d).replace(/^[0]+/g,"");;
           })

@@ -1,7 +1,20 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .directive('amountNumber', function () {
+  .directive('amountNumber', function (Scales) {
+
+    var percentage_display = function(amount) {
+      return Math.floor(amount) + "%";
+    };
+
+    var time_display = function(amount) {
+      if (amount > 0) {
+        console.log(Scales.linear_scale(amount));
+        console.log(Scales.time_scale.invert(Scales.linear_scale(amount)));
+      }
+      return "time";
+    };
+
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
@@ -16,8 +29,7 @@ angular.module('hydrationApp')
           .attr("class", "amountNumber")
           .attr("x", width/2)
           .attr("y", height/2)
-          .attr("text-anchor", "middle")
-          .text(scope.amount);
+          .attr("text-anchor", "middle");
 
 
         scope.$watch("amount", function(new_val, old_val) {
@@ -28,7 +40,7 @@ angular.module('hydrationApp')
             .tween("text", function() {
               var i = d3.interpolate(old_val, new_val);
               return function(t) {
-                this.textContent = Math.floor(i(t)) + "%";
+                this.textContent = time_display(i(t));
               };
             });
         });
