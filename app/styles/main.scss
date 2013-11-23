@@ -9,8 +9,15 @@ html, body, .container{
 body {
   margin: 0;
   padding: 0;
+}
+
+body, h1, h2 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 100;
+}
+
+p {
+  font-weight: 200;
 }
 
 svg {
@@ -60,4 +67,9 @@ div.actions {
 .amountDisplay {
   fill: $grey;
   font-size: 78pt;
+}
+
+// ======= Intro Page =========== //
+div.introScreen {
+  text-align: center;
 }

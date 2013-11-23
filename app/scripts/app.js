@@ -10,6 +10,10 @@ angular.module('hydrationApp', ['ngRoute'])
 
     $routeProvider
       .when('/', {
+        templateUrl: 'views/intro.html',
+        controller: 'IntroCtrl'
+      })
+      .when('/water', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
