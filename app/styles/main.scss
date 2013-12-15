@@ -77,4 +77,8 @@ div.introScreen {
 button.multi_choice {
   border: 1px solid #737373;
   background-color: white;
+
+  &.selected {
+    background-color: $blue_water;
+  }
 }

@@ -19,8 +19,8 @@
             <div ng-switch-when="units">
                 <h2>What Looks Right?</h2>
                 <p>Some like metric, others imperial</p>
-                <button ng-click="model.units = 'ml'" class="multi_choice">250 ml</button>
-                <button ng-click="model.units = 'oz'" class="multi_choice">8 oz</button>
+                <button ng-click="model.units = 'ml'" ng-class="{'ml': 'selected'}[model.units]" class="multi_choice">250 ml</button>
+                <button ng-click="model.units = 'oz'" ng-class="{'oz': 'selected'}[model.units]" class="multi_choice">8 oz</button>
                 <button ng-click="model.show_question = 'weight'">Prev</button>
             </div>
         </div>
