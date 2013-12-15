@@ -2,22 +2,28 @@
     <div class="introScreen">
         <br>
         <h1>Two Quick Questions</h1>
-        <h2>What's your weight?</h2>
-        <p>To know how much water you need</p>
-        <div>
-            <input ng-model="weight_input" type="text"/>
-            <select>
-                <option value="lbs">lbs</option>
-                <option value="kg">kg</option>
-            </select>
-        </div>
-        <br>
 
-        <div ng-show="model.weight > 50">
-            <h2>What Looks Right?</h2>
-            <p>Some like metric, others imperial</p>
-            <button class="multi_choice">250 ml</button>
-            <button class="multi_choice">8 oz</button>
+        <div ng-switch on="model.show_question">
+            <div ng-switch-when="weight">
+                <h2>What's your weight?</h2>
+                <p>To know how much water you need</p>
+                <div>
+                    <input ng-model="weight_input" type="text"/>
+                    <select>
+                        <option value="lbs">lbs</option>
+                        <option value="kg">kg</option>
+                    </select>
+                    <button ng-click="model.show_question = 'units'">Next</button>
+                </div>
+            </div>
+            <div ng-switch-when="units">
+                <h2>What Looks Right?</h2>
+                <p>Some like metric, others imperial</p>
+                <button ng-click="model.units = 'ml'" class="multi_choice">250 ml</button>
+                <button ng-click="model.units = 'oz'" class="multi_choice">8 oz</button>
+                <button ng-click="model.show_question = 'weight'">Prev</button>
+            </div>
         </div>
+
     </div>
 </div>
