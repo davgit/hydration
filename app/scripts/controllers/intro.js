@@ -9,4 +9,8 @@ angular.module('hydrationApp')
 		units: null
 	};
 
+	$scope.start_water = function() {
+		console.log("WATER!");
+	};
+
   });

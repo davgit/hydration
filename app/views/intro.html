@@ -8,7 +8,7 @@
                 <h2>What's your weight?</h2>
                 <p>To know how much water you need</p>
                 <div>
-                    <input ng-model="weight_input" type="text"/>
+                    <input ng-model="model.weight" type="number"/>
                     <select>
                         <option value="lbs">lbs</option>
                         <option value="kg">kg</option>
@@ -21,7 +21,11 @@
                 <p>Some like metric, others imperial</p>
                 <button ng-click="model.units = 'ml'" ng-class="{'ml': 'selected'}[model.units]" class="multi_choice">250 ml</button>
                 <button ng-click="model.units = 'oz'" ng-class="{'oz': 'selected'}[model.units]" class="multi_choice">8 oz</button>
-                <button ng-click="model.show_question = 'weight'">Prev</button>
+
+                <div>
+                    <button ng-click="model.show_question = 'weight'">Prev</button>
+                    <button ng-click="start_water()">Get Started</button>
+                </div>
             </div>
         </div>
 
