@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('hydrationApp', ['ngRoute'])
+angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
   .config(function ($routeProvider, $provide) {
     $provide.constant('tools', {
       date_format: function(d) {
