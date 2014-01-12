@@ -14,9 +14,6 @@ angular.module('hydrationApp')
 
     return {
       restrict: 'A',
-      scope: {
-        amount: '='
-      },
       controller: 'AmountDisplayCtrl',
       link: function postLink(scope, element, attrs) {
         var height = document.getElementsByTagName("svg")[0].offsetHeight;
