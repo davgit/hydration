@@ -1,0 +1,22 @@
+<p>This is the settings view.</p>
+
+<p>
+	Current Weight
+	<input ng-model="model.weight" type="number"/>
+	<select ng-model="model.weight_units">
+	    <option value="lbs">lbs</option>
+	    <option value="kg">kg</option>
+	</select>
+</p>
+
+<p>
+	Water Units
+	<button ng-click="model.liquid_units = 'ml'" ng-class="{'ml': 'selected'}[model.liquid_units]" class="multi_choice">250 ml</button>
+	<button ng-click="model.liquid_units = 'oz'" ng-class="{'oz': 'selected'}[model.liquid_units]" class="multi_choice">8 oz</button>
+</p>
+
+
+<div>
+	<a href="#/">Intro</a>
+	<a href="#/water">Water</a>
+</div>

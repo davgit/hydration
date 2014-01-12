@@ -17,6 +17,10 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       })
