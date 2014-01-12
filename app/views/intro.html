@@ -3,28 +3,27 @@
         <br>
         <h1>Two Quick Questions</h1>
 
-        <div ng-switch on="model.show_question">
+        <div ng-switch on="show_question">
             <div ng-switch-when="weight">
                 <h2>What's your weight?</h2>
                 <p>To know how much water you need</p>
                 <div>
                     <input ng-model="model.weight" type="number"/>
-                    <select>
+                    <select ng-model="model.weight_units">
                         <option value="lbs">lbs</option>
                         <option value="kg">kg</option>
                     </select>
-                    <button ng-click="model.show_question = 'units'">Next</button>
+                    <button ng-click="change_question('units')">Next</button>
                 </div>
             </div>
             <div ng-switch-when="units">
                 <h2>What Looks Right?</h2>
                 <p>Some like metric, others imperial</p>
-                <button ng-click="model.units = 'ml'" ng-class="{'ml': 'selected'}[model.units]" class="multi_choice">250 ml</button>
-                <button ng-click="model.units = 'oz'" ng-class="{'oz': 'selected'}[model.units]" class="multi_choice">8 oz</button>
-
+                <button ng-click="model.liquid_units = 'ml'" ng-class="{'ml': 'selected'}[model.liquid_units]" class="multi_choice">250 ml</button>
+                <button ng-click="model.liquid_units = 'oz'" ng-class="{'oz': 'selected'}[model.liquid_units]" class="multi_choice">8 oz</button>
                 <div>
-                    <button ng-click="model.show_question = 'weight'">Prev</button>
-                    <a ng-show="model.units" href="#water">Get Started</a>
+                    <button ng-click="change_question('weight')">Prev</button>
+                    <a ng-show="model.liquid_units" href="#water">Get Started</a>
                 </div>
             </div>
         </div>
