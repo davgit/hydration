@@ -2,12 +2,12 @@
   "name": "hydration",
   "version": "1.0.0",
   "dependencies": {
-    "angular": "1.2.5",
-    "angular-sanitize": "1.2.5",
-    "angular-touch": "1.2.5",
+    "angular": "1.2.8",
+    "angular-sanitize": "1.2.8",
+    "angular-touch": "1.2.8",
     "d3": "3.3.12"
   },
   "devDependencies": {
-    "angular-route": "1.2.5"
+    "angular-route": "1.2.8"
   }
 }
