@@ -24,14 +24,22 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
       .otherwise({
         redirectTo: '/'
       })
-  }).run(function($rootScope) {
+  }).run(function($rootScope, waterRecord) {
 
+    // Initialize the model
     $rootScope.model = {
-      weight: 150,
-      weight_units: 'lbs',
+      weight: 95.2544, // 210 lbs
+      weight_units: 'kg',
 
       liquid_units: null,
 
-
+      water_dates: [
+        {
+          date: new Date('2014/1/12'),
+          amount_ml: 1000
+        }
+      ]
     };
+
+    waterRecord.init();
   });
