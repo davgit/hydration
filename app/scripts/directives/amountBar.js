@@ -15,7 +15,7 @@ angular.module('hydrationApp')
           .range([height, 0]);
 
         svg_g.selectAll(".amountBar")
-          .data([scope.today_amount()])
+          .data([scope.today_amount_percentage()])
         .enter().append("rect")
           .attr("class", "amountBar")
           .attr("x", 0)
@@ -23,9 +23,9 @@ angular.module('hydrationApp')
           .attr("y", function(d) { return scale(d); })
           .attr("height", function(d) { return height - scale(d); });
 
-        scope.$watch("today_amount()", function() {
+        scope.$watch("today_amount_percentage()", function() {
           svg_g.selectAll(".amountBar")
-            .data([scope.today_amount()])
+            .data([scope.today_amount_percentage()])
             .transition()
             .ease("quad-in-out")
             .duration(700)

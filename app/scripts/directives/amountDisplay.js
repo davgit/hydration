@@ -22,7 +22,7 @@ angular.module('hydrationApp')
         var svg_g = d3.select(element[0]);
 
         svg_g.selectAll(".amountDisplay")
-          .data([scope.today_amount()])
+          .data([scope.today_amount_percentage()])
         .enter().append("text")
           .attr("class", "amountDisplay")
           .attr("x", width/2)
@@ -31,12 +31,12 @@ angular.module('hydrationApp')
 
         scope.$watch("current_display", function() {
           svg_g.selectAll(".amountDisplay")
-            .text(display_styles[scope.current_display](scope.today_amount()));
+            .text(display_styles[scope.current_display](scope.today_amount_percentage()));
         });
 
-        scope.$watch("today_amount()", function(new_val, old_val) {
+        scope.$watch("today_amount_percentage()", function(new_val, old_val) {
           svg_g.selectAll(".amountDisplay")
-            .data([scope.today_amount()])
+            .data([scope.today_amount_percentage()])
             .transition()
             .ease("quad-in-out")
             .tween("text", function() {

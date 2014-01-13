@@ -2,7 +2,7 @@
 
 angular.module('hydrationApp')
   .controller('MainCtrl', function ($scope, waterRecord) {
-    $scope.today_amount = waterRecord.today_amount;
+    $scope.today_amount_percentage = waterRecord.today_amount_percentage;
 
     $scope.large_glass = function() {
       waterRecord.add_amount(20);

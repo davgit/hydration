@@ -3,15 +3,25 @@
 angular.module('hydrationApp')
   .service('waterRecord', function waterRecord() {
 
-  	var today_amount = 0;
+    var today_amount_percentage = 20;
 
-  	return {
-  		today_amount: function() {
-  			return today_amount;
-  		},
+    // current weight / 2 = oz to drink per day
+    // 206lb == 103 oz
+    // 1oz == 29.5735ml
 
-  		add_amount: function(amount) {
-  			today_amount = Math.abs((today_amount + amount)%110);
-  		}
-  	}
+    //50% weight in oz
+    //70% weight in oz :: high range
+
+
+
+
+    return {
+      today_amount_percentage: function() {
+        return today_amount_percentage;
+      },
+
+      add_amount: function(amount) {
+        today_amount_percentage = Math.abs((today_amount_percentage + amount)%110);
+      }
+    }
   });
