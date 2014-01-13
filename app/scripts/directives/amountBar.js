@@ -4,9 +4,6 @@ angular.module('hydrationApp')
   .directive('amountBar', function () {
     return {
       restrict: 'A',
-      scope: {
-        amount: '='
-      },
       link: function postLink(scope, element, attrs) {
         var height = document.getElementsByTagName("svg")[0].offsetHeight;
         var width = document.getElementsByTagName("svg")[0].offsetWidth;
@@ -18,7 +15,7 @@ angular.module('hydrationApp')
           .range([height, 0]);
 
         svg_g.selectAll(".amountBar")
-          .data([scope.amount])
+          .data([scope.today_amount()])
         .enter().append("rect")
           .attr("class", "amountBar")
           .attr("x", 0)
@@ -26,9 +23,9 @@ angular.module('hydrationApp')
           .attr("y", function(d) { return scale(d); })
           .attr("height", function(d) { return height - scale(d); });
 
-        scope.$watch("amount", function() {
+        scope.$watch("today_amount()", function() {
           svg_g.selectAll(".amountBar")
-            .data([scope.amount])
+            .data([scope.today_amount()])
             .transition()
             .ease("quad-in-out")
             .duration(700)

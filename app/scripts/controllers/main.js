@@ -1,16 +1,15 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.amount = 0;
-
+  .controller('MainCtrl', function ($scope, waterRecord) {
+    $scope.today_amount = waterRecord.today_amount;
 
     $scope.large_glass = function() {
-      $scope.amount = ($scope.amount + 10)%110;
+      waterRecord.add_amount(20);
     };
 
     $scope.small_glass = function() {
-      $scope.amount = Math.abs(($scope.amount - 10)%110);
+      waterRecord.add_amount(10);
     };
 
   });
