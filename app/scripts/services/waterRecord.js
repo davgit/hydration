@@ -21,11 +21,11 @@ angular.module('hydrationApp')
 
     }
 
-    var calc_percentage_water = function(amount_ml, weight_kg) {
+    var update_percentage_water = function() {
       // Weight in lbs / 2 ... in oz
       // 206lb == 103 oz
-      var total_drink_ml = weight_kg * 2.20462 / 2 * 29.5735;
-      return amount_ml / total_drink_ml * 100;
+      var total_drink_ml = $rootScope.model.weight * 2.20462 / 2 * 29.5735;
+      today_amount_percentage = today_data.amount_ml / total_drink_ml * 100;
     }
 
     // Set amounts in ml
@@ -54,12 +54,7 @@ angular.module('hydrationApp')
             amount_ml: 0
           }
         }
-
-        today_amount_percentage = calc_percentage_water(
-                                    today_data.amount_ml,
-                                    $rootScope.model.weight
-                                  );
-
+        update_percentage_water();
       },
 
       today_amount_percentage: function() {
@@ -68,10 +63,7 @@ angular.module('hydrationApp')
 
       add_amount: function(amount) {
         today_data.amount_ml += amount;
-        today_amount_percentage = calc_percentage_water(
-                                    today_data.amount_ml,
-                                    $rootScope.model.weight
-                                  );
+        update_percentage_water();
       }
     }
   });
