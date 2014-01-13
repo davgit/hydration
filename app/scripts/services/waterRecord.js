@@ -42,7 +42,7 @@ angular.module('hydrationApp')
         } else {
           today_data = {
             date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
-            amount: 0
+            amount_ml: 0
           }
         }
 
