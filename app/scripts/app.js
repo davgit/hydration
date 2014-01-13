@@ -27,9 +27,11 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
   }).run(function($rootScope) {
 
     $rootScope.model = {
-      weight: 200,
+      weight: 150,
       weight_units: 'lbs',
 
       liquid_units: null,
+
+
     };
   });
