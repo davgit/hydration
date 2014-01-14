@@ -52,7 +52,8 @@ angular.module('hydrationApp')
           today_data = {
             date: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
             amount_ml: 0
-          }
+          };
+          $rootScope.model.water_dates.push(today_data);
         }
         update_percentage_water();
       },
@@ -64,6 +65,8 @@ angular.module('hydrationApp')
       add_amount: function(amount) {
         today_data.amount_ml += amount;
         update_percentage_water();
+
+        $rootScope.save_model();
       }
     }
   });

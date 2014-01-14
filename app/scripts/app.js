@@ -26,20 +26,35 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
       })
   }).run(function($rootScope, waterRecord) {
 
-    // Initialize the model
-    $rootScope.model = {
-      weight: 95.2544, // 210 lbs
-      weight_units: 'kg',
-
-      liquid_units: null,
-
-      water_dates: [
-        {
-          date: new Date('2014/1/12'),
-          amount_ml: 1000
-        }
-      ]
+    // Save Model
+    $rootScope.save_model = function() {
+      localStorage.setItem('model', JSON.stringify($rootScope.model));
     };
+
+    // Initial loading of model from storage
+    var local_save = localStorage.getItem('model');
+    if (local_save === null) {
+      // Initialize empty model
+      $rootScope.model = {
+        weight: 68.04, // 150 lbs
+        weight_units: 'kg',
+
+        liquid_units: null,
+
+        water_dates: [
+          {
+            date: new Date('2014/1/12'),
+            amount_ml: 1000
+          }
+        ]
+      }
+    } else {
+      $rootScope.model = JSON.parse(local_save);
+      angular.forEach($rootScope.model.water_dates, function(wd){
+        wd.date = new Date(wd.date);
+      });
+    }
+
 
     waterRecord.init();
   });

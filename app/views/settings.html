@@ -2,17 +2,28 @@
 
 <p>
 	Current Weight
-	<input ng-model="model.weight" type="number"/>
+
+	<input ng-change="kg_change()" ng-if="model.weight_units == 'kg'" ng-model="model.weight" type="number"/>
+	<input ng-change="lbs_change()" ng-if="model.weight_units == 'lbs'" ng-model="settings_state.weight_lbs" type="number"/>
+
+
 	<select ng-model="model.weight_units">
 	    <option value="lbs">lbs</option>
 	    <option value="kg">kg</option>
 	</select>
+
+
+	<div>
+		{{ settings_state.weight_lbs }}
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		{{ model.weight }}
+	</div>
 </p>
 
 <p>
 	Water Units
-	<button ng-click="model.liquid_units = 'ml'" ng-class="{'ml': 'selected'}[model.liquid_units]" class="multi_choice">250 ml</button>
-	<button ng-click="model.liquid_units = 'oz'" ng-class="{'oz': 'selected'}[model.liquid_units]" class="multi_choice">8 oz</button>
+	<button ng-click="set_unit('ml')" ng-class="{'ml': 'selected'}[model.liquid_units]" class="multi_choice">250 ml</button>
+	<button ng-click="set_unit('oz')" ng-class="{'oz': 'selected'}[model.liquid_units]" class="multi_choice">8 oz</button>
 </p>
 
 
