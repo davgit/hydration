@@ -3,7 +3,7 @@
 angular.module('hydrationApp')
   .service('waterRecord', function waterRecord($rootScope) {
 
-    var today_amount_percentage = 20,
+    var today_amount_percentage = 0,
         today_data = {};
 
     // current weight / 2 = oz to drink per day
@@ -25,7 +25,7 @@ angular.module('hydrationApp')
       // Weight in lbs / 2 ... in oz
       // 206lb == 103 oz
       var total_drink_ml = $rootScope.model.weight * 2.20462 / 2 * 29.5735;
-      today_amount_percentage = today_data.amount_ml / total_drink_ml * 100;
+      today_amount_percentage = Math.min(today_data.amount_ml / total_drink_ml * 100, 100);
     }
 
     // Set amounts in ml
