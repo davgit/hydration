@@ -9,11 +9,11 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
     });
 
     $routeProvider
-      .when('/', {
+      .when('/intro', {
         templateUrl: 'views/intro.html',
         controller: 'IntroCtrl'
       })
-      .when('/water', {
+      .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -24,7 +24,7 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
       .otherwise({
         redirectTo: '/'
       })
-  }).run(function($rootScope, waterRecord) {
+  }).run(function($location, $rootScope, waterRecord) {
 
     // Save Model
     $rootScope.save_model = function() {
@@ -34,6 +34,9 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
     // Initial loading of model from storage
     var local_save = localStorage.getItem('model');
     if (local_save === null) {
+      // First time app is starting...
+      $location.path('/intro');
+
       // Initialize empty model
       $rootScope.model = {
         weight: 68.04, // 150 lbs
@@ -54,7 +57,6 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
         wd.date = new Date(wd.date);
       });
     }
-
 
     waterRecord.init();
   });
