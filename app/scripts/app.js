@@ -40,7 +40,7 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
       // Initialize empty model
       $rootScope.model = {
         weight: 68.04, // 150 lbs
-        weight_units: 'kg',
+        weight_units: 'lbs',
 
         liquid_units: null,
 
