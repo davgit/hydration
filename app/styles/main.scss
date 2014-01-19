@@ -67,6 +67,10 @@ div.actions {
 .amountDisplay {
   fill: $grey;
   font-size: 78pt;
+
+  &.liquid_txt {
+    font-size: 78pt * 0.5;
+  }
 }
 
 // ======= Intro Page =========== //
