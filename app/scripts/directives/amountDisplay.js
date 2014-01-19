@@ -43,7 +43,7 @@ angular.module('hydrationApp')
         .enter().append("text")
           .attr("class", function() {
             var txt_clss = "amountDisplay";
-            if (scope.current_display == 'liquid_display') {
+            if (scope.model.current_display == 'liquid_display') {
               txt_clss += " liquid_txt";
             }
             return txt_clss;
@@ -52,12 +52,12 @@ angular.module('hydrationApp')
           .attr("y", height/2)
           .attr("text-anchor", "middle");
 
-        scope.$watch("current_display", function() {
+        scope.$watch("model.current_display", function() {
           svg_g.selectAll(".amountDisplay")
-            .text(display_styles[scope.current_display](scope.today_amount_percentage()))
+            .text(display_styles[scope.model.current_display](scope.today_amount_percentage()))
             .attr("class", function() {
               var txt_clss = "amountDisplay";
-              if (scope.current_display == 'liquid_display') {
+              if (scope.model.current_display == 'liquid_display') {
                 txt_clss += " liquid_txt";
               }
               return txt_clss;
@@ -72,7 +72,7 @@ angular.module('hydrationApp')
             .tween("text", function() {
               var i = d3.interpolate(old_val, new_val);
               return function(t) {
-                this.textContent = display_styles[scope.current_display](i(t));
+                this.textContent = display_styles[scope.model.current_display](i(t));
               };
             });
         });

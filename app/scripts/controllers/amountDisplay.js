@@ -5,10 +5,11 @@ angular.module('hydrationApp')
 
     var display_styles = ['percentage_display', 'time_display', 'liquid_display'];
 
-    $scope.current_display = 'percentage_display';
+    $scope.model.current_display = $scope.model.current_display || 'percentage_display';
 
     $scope.toggle_display = function() {
-      var next_index = (display_styles.indexOf($scope.current_display) + 1) % display_styles.length;
-      $scope.current_display = display_styles[next_index];
+      var next_index = (display_styles.indexOf($scope.model.current_display) + 1) % display_styles.length;
+      $scope.model.current_display = display_styles[next_index];
+      $scope.save_model();
     }
   });
