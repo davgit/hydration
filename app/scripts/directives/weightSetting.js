@@ -34,7 +34,6 @@ angular.module('hydrationApp')
         // Not sure why the ng-change wouldn't work on the select...
         scope.$watch('model.weight_units', function(new_val, old_val) {
           if (new_val === old_val) return;
-          console.log('change!');
           $rootScope.save_model();
         });
 

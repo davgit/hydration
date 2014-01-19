@@ -12,14 +12,20 @@ angular.module('hydrationApp')
       },
       liquid_display: function(amount) {
 
-        console.log();
+        var water_target = waterRecord.water_target_ml(),
+            water_current = water_target * amount / 100,
+            num_filter = $filter('number');
 
-        if ($rootScope.model.liquid_units = 'ml') {
-          return $filter('number')(amount * waterRecord.water_target_ml() / 100, 0) +
-          ' / ' + $filter('number')(waterRecord.water_target_ml(), 0) +' ml';
-        } else {
-          return "unknown" + ' oz';
+        if ($rootScope.model.liquid_units === 'oz') {
+          water_target = water_target * 0.033814;
+          water_current = water_current * 0.033814;
         }
+
+        return num_filter(water_current, 0) +
+               ' / ' +
+               num_filter(water_target, 0) +
+               ' ' +
+               $rootScope.model.liquid_units;
       }
     };
 
