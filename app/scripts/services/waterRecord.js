@@ -18,14 +18,16 @@ angular.module('hydrationApp')
       return d1.getDate() === d2.getDate() &&
              d1.getMonth() === d2.getMonth() &&
              d1.getFullYear() === d2.getFullYear();
+    }
 
+    var water_target_ml = function() {
+      // Weight in lbs / 2 ... in oz
+      // 206lb == 103 oz
+      return $rootScope.model.weight * 2.20462 / 2 * 29.5735;
     }
 
     var update_percentage_water = function() {
-      // Weight in lbs / 2 ... in oz
-      // 206lb == 103 oz
-      var total_drink_ml = $rootScope.model.weight * 2.20462 / 2 * 29.5735;
-      today_amount_percentage = Math.min(today_data.amount_ml / total_drink_ml * 100, 100);
+      today_amount_percentage = Math.min(today_data.amount_ml / water_target_ml() * 100, 100);
     }
 
     // Set amounts in ml
@@ -61,6 +63,8 @@ angular.module('hydrationApp')
       today_amount_percentage: function() {
         return today_amount_percentage;
       },
+
+      water_target_ml: water_target_ml,
 
       add_amount: function(amount) {
         today_data.amount_ml += amount;

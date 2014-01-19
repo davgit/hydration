@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .directive('amountDisplay', function (scales, tools) {
+  .directive('amountDisplay', function ($rootScope, $filter, scales, tools, waterRecord) {
 
     var display_styles = {
       percentage_display: function(amount) {
@@ -9,6 +9,17 @@ angular.module('hydrationApp')
       },
       time_display: function(amount) {
         return tools.date_format(scales.time_scale.invert(scales.linear_scale(amount)));
+      },
+      liquid_display: function(amount) {
+
+        console.log();
+
+        if ($rootScope.model.liquid_units = 'ml') {
+          return $filter('number')(amount * waterRecord.water_target_ml() / 100, 0) +
+          ' / ' + $filter('number')(waterRecord.water_target_ml(), 0) +' ml';
+        } else {
+          return "unknown" + ' oz';
+        }
       }
     };
 
@@ -24,14 +35,27 @@ angular.module('hydrationApp')
         svg_g.selectAll(".amountDisplay")
           .data([scope.today_amount_percentage()])
         .enter().append("text")
-          .attr("class", "amountDisplay")
+          .attr("class", function() {
+            var txt_clss = "amountDisplay";
+            if (scope.current_display == 'liquid_display') {
+              txt_clss += " liquid_txt";
+            }
+            return txt_clss;
+          })
           .attr("x", width/2)
           .attr("y", height/2)
           .attr("text-anchor", "middle");
 
         scope.$watch("current_display", function() {
           svg_g.selectAll(".amountDisplay")
-            .text(display_styles[scope.current_display](scope.today_amount_percentage()));
+            .text(display_styles[scope.current_display](scope.today_amount_percentage()))
+            .attr("class", function() {
+              var txt_clss = "amountDisplay";
+              if (scope.current_display == 'liquid_display') {
+                txt_clss += " liquid_txt";
+              }
+              return txt_clss;
+            });
         });
 
         scope.$watch("today_amount_percentage()", function(new_val, old_val) {

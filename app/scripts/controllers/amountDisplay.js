@@ -3,7 +3,7 @@
 angular.module('hydrationApp')
   .controller('AmountDisplayCtrl', function ($scope) {
 
-    var display_styles = ['percentage_display', 'time_display'];
+    var display_styles = ['percentage_display', 'time_display', 'liquid_display'];
 
     $scope.current_display = 'percentage_display';
 
