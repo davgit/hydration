@@ -42,11 +42,7 @@ angular.module('hydrationApp')
           .data([scope.today_amount_percentage()])
         .enter().append("text")
           .attr("class", function() {
-            var txt_clss = "amountDisplay";
-            if (scope.model.current_display == 'liquid_display') {
-              txt_clss += " liquid_txt";
-            }
-            return txt_clss;
+            return "amountDisplay" + (scope.model.current_display === 'liquid_display' ? " liquid_txt" : '');
           })
           .attr("x", width/2)
           .attr("y", height/2)
@@ -56,11 +52,7 @@ angular.module('hydrationApp')
           svg_g.selectAll(".amountDisplay")
             .text(display_styles[scope.model.current_display](scope.today_amount_percentage()))
             .attr("class", function() {
-              var txt_clss = "amountDisplay";
-              if (scope.model.current_display == 'liquid_display') {
-                txt_clss += " liquid_txt";
-              }
-              return txt_clss;
+              return "amountDisplay" + (scope.model.current_display === 'liquid_display' ? " liquid_txt" : '');
             });
         });
 
