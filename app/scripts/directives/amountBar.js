@@ -14,8 +14,13 @@ angular.module('hydrationApp')
           .domain([0, 100])
           .range([height, 0]);
 
+        // Today's percentage, but with a min
+        var today_buffered_percentage = function() {
+          return Math.max(1, scope.today_amount_percentage());
+        }
+
         svg_g.selectAll(".amountBar")
-          .data([scope.today_amount_percentage()])
+          .data([today_buffered_percentage()])
         .enter().append("rect")
           .attr("class", "amountBar")
           .attr("x", 0)
@@ -25,7 +30,7 @@ angular.module('hydrationApp')
 
         scope.$watch("today_amount_percentage()", function() {
           svg_g.selectAll(".amountBar")
-            .data([scope.today_amount_percentage()])
+            .data([today_buffered_percentage()])
             .transition()
             .ease("quad-in-out")
             .duration(700)
