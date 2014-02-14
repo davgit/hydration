@@ -7,9 +7,18 @@
         </svg>
     </div>
     <div class="actions">
-        <button ng-click="large_glass()">Large Glass</button>
-        <button ng-click="small_glass()">Small Glass</button>
-        <button ng-click="show_settings()" class="right">Settings</button>
-        <a href="#/intro">Intro</a>
+        <a ng-click="large_glass()" class="button large_glass">
+            <img src="/images/glass.svg" height="30">
+            Large Glass
+        </a>
+
+        <a ng-click="small_glass()" class="button small_glass">
+            <img src="/images/glass.svg" height="20">
+            Small Glass
+        </a>
+
+        <a ng-click="show_settings()" class="button right">
+            <img src="/images/gear.svg" height="24">
+        </a>
     </div>
 </div>
