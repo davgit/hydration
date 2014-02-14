@@ -1,0 +1,32 @@
+input, textarea, select, button, label, .button {
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select,
+button,
+label {
+  display: inline-block;
+  vertical-align: top;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+input,
+textarea,
+select,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  font-size: 16px;
+  background: white;
+  border: 0;
+  border-radius: 0;
+}
+input[type="number"],input[type="text"] {
+  height: 42px;
+  font-size: 16px;
+  border-bottom: 1px solid #e5e5eb;
+}

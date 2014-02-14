@@ -9,7 +9,7 @@
                 <p>To know how much water you need</p>
                 <div>
                     <weight-setting></weight-setting>
-                    <button ng-click="change_question('units')">Next</button>
+                    <a ng-click="change_question('units')" class="button button_bordered">Next</a>
                 </div>
             </div>
             <div ng-switch-when="units">
@@ -17,7 +17,7 @@
                 <p>Some like metric, others imperial</p>
                 <liquid-unit></liquid-unit>
                 <div>
-                    <button ng-click="change_question('weight')">Prev</button>
+                    <a ng-click="change_question('weight')" class="button button_bordered">Prev</a>
                     <a ng-show="model.liquid_units" href="#water">Get Started</a>
                 </div>
             </div>

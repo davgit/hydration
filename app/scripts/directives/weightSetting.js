@@ -7,8 +7,8 @@ angular.module('hydrationApp')
     }
 
     return {
-      template: '<input ng-change="kg_change()" ng-if="model.weight_units == \'kg\'" ng-model="model.weight" type="number"/>'+
-        '<input ng-change="lbs_change()" ng-if="model.weight_units == \'lbs\'" ng-model="settings_state.weight_lbs" type="number"/>'+
+      template: '<input ng-change="kg_change()" ng-if="model.weight_units == \'kg\'" ng-model="model.weight" class="weight_input" type="number"/>'+
+        '<input ng-change="lbs_change()" ng-if="model.weight_units == \'lbs\'" ng-model="settings_state.weight_lbs" class="weight_input" type="number"/>'+
         '<select ng-model="model.weight_units">'+
         '    <option value="lbs">lbs</option>'+
         '    <option value="kg">kg</option>'+
