@@ -30,3 +30,30 @@ input[type="number"],input[type="text"] {
   font-size: 16px;
   border-bottom: 1px solid #e5e5eb;
 }
+
+select {
+  height: 42px;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+div.select_arrow {
+  display: inline-block;
+  position: relative;
+  &:after {
+    font-family: 'elegant-icons' !important;
+    font-size: 24px;
+    line-height: 1;
+    content: '3';
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    margin-top: -.5em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    pointer-events: none;
+  }
+  & > select {
+    padding-left: 6px;
+    padding-right: 24px;
+  }
+}
