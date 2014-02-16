@@ -23,5 +23,34 @@ button {
 input[type="number"],input[type="text"] {
   height: 42px;
   font-size: 16px;
-  border-bottom: 1px solid #e5e5eb;
+  border-bottom: 1px solid $ios7blue + #333;
+}
+
+div.segmentSelect {
+  display: inline-block;
+
+  a {
+    display: inline-block;
+    height: 29px;
+    line-height: 29px;
+    font-size: 13px;
+    font-weight: 200;
+    border: 1px solid $ios7blue;
+    color: $ios7blue;
+    border-right-width: 0;
+    float: left;
+    padding: 0 21px;
+
+    &.segmentActive {
+      background-color: $ios7blue;
+      color: #FFF;
+    }
+    &:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+    &:last-child {
+      border-right-width: 1px;
+      border-radius: 0 4px 4px 0;
+    }
+  }
 }

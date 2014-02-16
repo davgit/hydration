@@ -3,8 +3,10 @@
 angular.module('hydrationApp')
   .directive('liquidUnit', function ($rootScope) {
     return {
-      template: '<a ng-click="set_unit(\'ml\')" ng-class="{\'ml\': \'selected\'}[model.liquid_units]" class="multi_choice button">250 ml</a>'+
-				'<a ng-click="set_unit(\'oz\')" ng-class="{\'oz\': \'selected\'}[model.liquid_units]" class="multi_choice button">8 oz</a>',
+      template: '<div class="segmentSelect">'+
+      '  <a ng-click="set_unit(\'ml\')" ng-class="{\'ml\': \'segmentActive\'}[model.liquid_units]">250 ml</a>'+
+			'  <a ng-click="set_unit(\'oz\')" ng-class="{\'oz\': \'segmentActive\'}[model.liquid_units]">8 oz</a>'+
+      '</div>',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
         scope.set_unit = function(unit) {

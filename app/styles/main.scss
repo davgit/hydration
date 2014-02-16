@@ -113,14 +113,6 @@ svg {
 div.introScreen {
   text-align: center;
 }
-a.multi_choice {
-  border: 1px solid #737373;
-  background-color: white;
-
-  &.selected {
-    background-color: $blue_water;
-  }
-}
 
 // ======= Directives =========== //
 input.weight_input {
