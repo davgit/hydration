@@ -22,8 +22,8 @@ angular.module('hydrationApp')
           water_current = num_filter(water_current * 0.033814, 0);
         } else if(display_unit === 'ml') {
           display_unit = 'L';
-          water_target = num_filter(water_target / 1000, 2);
-          water_current = num_filter(water_current / 1000, 2);
+          water_target = num_filter(water_target / 1000, 1);
+          water_current = num_filter(water_current / 1000, 1);
 
         }
 
