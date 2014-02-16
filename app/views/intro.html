@@ -1,32 +1,19 @@
 <div>
-    <div class="introScreen">
-        <br>
-        <h1>Two Quick Questions</h1>
+  <div class="introScreen">
+    <br>
+    <h1>Two Quick Questions</h1>
 
-        <div ng-switch on="show_question">
-            <div ng-switch-when="weight">
-                <h2>What's your weight?</h2>
-                <p>To know how much water you need</p>
-                <div>
-                    <weight-setting></weight-setting>
-                    <a ng-click="change_question('units')" class="button button_bordered">Next</a>
-                </div>
-            </div>
-            <div ng-switch-when="units">
-                <h2>What Looks Right?</h2>
-                <p>Some like metric, others imperial</p>
-                <liquid-unit></liquid-unit>
-                <div>
-                    <a ng-click="change_question('weight')" class="button button_bordered">Prev</a>
-                    <a ng-show="model.liquid_units" href="#water">Get Started</a>
-                </div>
-            </div>
-        </div>
+    <h2>What's your weight?</h2>
+    <p>To know how much water you need</p>
+    <weight-setting></weight-setting>
 
-        <div>
-            <a href="#/">Water</a>
-            <a href="#/settings">Settings</a>
-        </div>
+    <br>
+    <br>
+    <h2>What Looks Right?</h2>
+    <p>Some like metric, others imperial</p>
+    <liquid-unit></liquid-unit>
 
-    </div>
+    <br>
+    <a href="#water">Get Started</a>
+  </div>
 </div>
