@@ -9,11 +9,10 @@ angular.module('hydrationApp')
     return {
       template: '<input ng-change="kg_change()" ng-if="model.weight_units == \'kg\'" ng-model="model.weight" class="weight_input" type="number"/>'+
         '<input ng-change="lbs_change()" ng-if="model.weight_units == \'lbs\'" ng-model="settings_state.weight_lbs" class="weight_input" type="number"/>'+
-        '<div class="select_arrow">'+
-        '    <select ng-model="model.weight_units">'+
-        '        <option value="lbs">lbs</option>'+
-        '        <option value="kg">kg</option>'+
-        '    </select>'+
+
+        '<div class="segmentSelect">'+
+        '  <a ng-click="set_weight_unit(\'lbs\')" ng-class="{\'lbs\': \'segmentActive\'}[model.weight_units]">lbs</a>'+
+        '  <a ng-click="set_weight_unit(\'kg\')" ng-class="{\'kg\': \'segmentActive\'}[model.weight_units]">kg</a>'+
         '</div>',
 
       restrict: 'E',
@@ -21,6 +20,11 @@ angular.module('hydrationApp')
 
         scope.settings_state = {
           weight_lbs: kg_to_lb(scope.model.weight)
+        }
+
+        scope.set_weight_unit = function(unit) {
+          $rootScope.model.weight_units = unit;
+          $rootScope.save_model();
         }
 
         scope.kg_change = function() {
