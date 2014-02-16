@@ -7,12 +7,15 @@ angular.module('hydrationApp')
     }
 
     return {
-      template: '<input ng-change="kg_change()" ng-if="model.weight_units == \'kg\'" ng-model="model.weight" class="weight_input" type="number"/>'+
-        '<input ng-change="lbs_change()" ng-if="model.weight_units == \'lbs\'" ng-model="settings_state.weight_lbs" class="weight_input" type="number"/>'+
+      template:
+        '<div class="weight_question">'+
+        '  <input ng-change="kg_change()" ng-if="model.weight_units == \'kg\'" ng-model="model.weight" class="weight_input" type="number"/>'+
+        '  <input ng-change="lbs_change()" ng-if="model.weight_units == \'lbs\'" ng-model="settings_state.weight_lbs" class="weight_input" type="number"/>'+
 
-        '<div class="segmentSelect">'+
-        '  <a ng-click="set_weight_unit(\'lbs\')" ng-class="{\'lbs\': \'segmentActive\'}[model.weight_units]">lbs</a>'+
-        '  <a ng-click="set_weight_unit(\'kg\')" ng-class="{\'kg\': \'segmentActive\'}[model.weight_units]">kg</a>'+
+        '  <div class="segmentSelect">'+
+        '    <a ng-click="set_weight_unit(\'lbs\')" ng-class="{\'lbs\': \'segmentActive\'}[model.weight_units]">lbs</a>'+
+        '    <a ng-click="set_weight_unit(\'kg\')" ng-class="{\'kg\': \'segmentActive\'}[model.weight_units]">kg</a>'+
+        '  </div>'+
         '</div>',
 
       restrict: 'E',

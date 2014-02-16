@@ -1,5 +1,6 @@
 // ======= Variables =========== //
 $grey: #6d6e73;
+$grey_muted: $grey + #444;
 $blue_water: #80d3ec;
 $ios7blue: #2087fc;
 
@@ -32,30 +33,6 @@ a {
 
 @import "inputs";
 
-
-.button {
-  display: inline-block;
-  vertical-align: top;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 12px;
-  color: $grey;
-  text-align: center;
-  background: transparent;
-  border-radius: 4px;
-
-  &.button_bordered {
-    box-shadow: inset 0 0 0 1px $grey;
-  }
-
-  font-weight: 200;
-
-  img {
-    vertical-align: middle;
-    margin-bottom: 3px;
-    margin-right: 2px;
-  }
-}
 
 // ======= Main Screen Layout =========== //
 div.mainScreen {
@@ -112,9 +89,43 @@ svg {
 // ======= Intro Screen Layout =========== //
 div.introScreen {
   text-align: center;
+
+  p {
+    color: $grey_muted;
+    margin: 0;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+  }
+
+  h1 {
+    margin-bottom: 1.5em;
+  }
+
+  h2 {
+    margin-bottom: 0.25em;
+  }
+
+  div.liquid_ask {
+    padding-top: 5px;
+  }
+
+  .get_started.button {
+    margin-top: 4em;
+    width: 75%;
+  }
+
+  .button {
+    color: $ios7blue;
+  }
 }
 
 // ======= Directives =========== //
-input.weight_input {
-  width: 100px;
+.weight_question {
+  .segmentSelect {
+    margin-top: 5px;
+  }
+  input.weight_input {
+    width: 100px;
+  }
 }
