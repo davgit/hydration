@@ -87,6 +87,30 @@ svg {
 }
 
 // ======= Intro Screen Layout =========== //
+div.topbar {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #c8c8c8;
+
+  text-align: left;
+
+  a.back_button {
+    font-size: 18px;
+    line-height: 42px;
+    color: $ios7blue;
+    font-weight: 200;
+    padding-left: 32px;
+
+    &:before {
+      font-family: 'elegant-icons';
+      content: '4';
+      font-size: 42px;
+      line-height: 42px;
+      position: absolute;
+      left: 0px;
+    }
+  }
+}
+
 div.introScreen {
   text-align: center;
 
