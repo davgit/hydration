@@ -29,6 +29,7 @@ angular.module('hydrationApp', ['ngRoute', 'ngTouch'])
     // Save Model
     $rootScope.save_model = function() {
       localStorage.setItem('model', JSON.stringify($rootScope.model));
+      waterRecord.update_percentage_water();
     };
 
     // Initial loading of model from storage

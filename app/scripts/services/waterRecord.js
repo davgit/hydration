@@ -66,6 +66,8 @@ angular.module('hydrationApp')
 
       water_target_ml: water_target_ml,
 
+      update_percentage_water: update_percentage_water,
+
       add_amount: function(amount) {
         today_data.amount_ml += amount;
         update_percentage_water();
