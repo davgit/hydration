@@ -1,20 +1,25 @@
 <div>
   <div class="introScreen">
-    <br>
-    <h1>Two Quick Questions</h1>
+    <div class="topbar">
+      <a ng-show="settings_view" class="back_button" href="#water">Back</a>
+    </div>
+
+    <h1 ng-show="settings_view">Settings</h1>
+    <h1 ng-hide="settings_view">Two Quick Questions</h1>
 
     <h2>What's your weight?</h2>
-    <p>To know how much water you need</p>
+    <p ng-hide="settings_view">To know how much water you need</p>
     <weight-setting></weight-setting>
 
     <br>
     <br>
+
     <h2>What Looks Right?</h2>
-    <p>Some like metric, others imperial</p>
+    <p ng-hide="settings_view">Some like metric, others imperial</p>
     <div class="liquid_ask">
       <liquid-unit></liquid-unit>
     </div>
 
-    <a class="get_started button button_bordered" href="#water">Get Started</a>
+    <a ng-hide="settings_view" class="get_started button button_bordered" href="#water">Get Started</a>
   </div>
 </div>
