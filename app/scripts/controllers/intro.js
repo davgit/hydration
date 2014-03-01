@@ -11,4 +11,10 @@ angular.module('hydrationApp')
       $scope.show_question = new_state;
     };
 
+    $scope.back_button = function() {
+      $location.path('/');
+    }
+    $scope.start_button = function() {
+      $location.path('/');
+    }
   });

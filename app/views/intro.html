@@ -1,7 +1,7 @@
 <div>
   <div class="introScreen">
     <div class="topbar" ng-show="settings_view">
-      <a class="back_button" href="#water">Back</a>
+      <a class="back_button" ng-click="back_button()">Back</a>
     </div>
     <br>
 
@@ -21,6 +21,6 @@
       <liquid-unit></liquid-unit>
     </div>
 
-    <a ng-hide="settings_view" class="get_started button button_bordered" href="#water">Get Started</a>
+    <a ng-hide="settings_view" class="get_started button button_bordered" ng-click="start_button()">Get Started</a>
   </div>
 </div>
