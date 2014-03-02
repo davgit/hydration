@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .controller('IntroCtrl', function ($scope, $location) {
+  .controller('IntroCtrl', function ($scope, $location, MainViewTransition) {
 
     $scope.settings_view = $location.path().indexOf('settings') !== -1;
 
@@ -12,9 +12,11 @@ angular.module('hydrationApp')
     };
 
     $scope.back_button = function() {
+      MainViewTransition.setTransition(MainViewTransition.transitions.SLIDE_LEFT);
       $location.path('/');
     }
     $scope.start_button = function() {
+      MainViewTransition.setTransition(MainViewTransition.transitions.SLIDE_LEFT);
       $location.path('/');
     }
   });

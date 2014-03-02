@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .controller('MainCtrl', function ($scope, $location, waterRecord) {
+  .controller('MainCtrl', function ($scope, $location, MainViewTransition, waterRecord) {
     $scope.today_amount_percentage = waterRecord.today_amount_percentage;
 
     $scope.large_glass = function() {
@@ -13,6 +13,7 @@ angular.module('hydrationApp')
     };
 
     $scope.show_settings = function() {
+      MainViewTransition.setTransition(MainViewTransition.transitions.SLIDE_DOWN);
       $location.path('/settings')
     }
 
