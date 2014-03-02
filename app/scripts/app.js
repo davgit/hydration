@@ -40,10 +40,10 @@ angular.module('hydrationApp', ['ngAnimate', 'ngRoute', 'ngTouch'])
 
       // Initialize empty model
       $rootScope.model = {
-        weight: 68.04, // 150 lbs
-        weight_units: 'lbs',
+        weight: 68.04, // 150 lbs - Most math done in metric
 
-        liquid_units: null,
+        weight_units: 'lbs', // Most users 'merican so imperial it is
+        liquid_units: 'oz',
 
         water_dates: [
           {
