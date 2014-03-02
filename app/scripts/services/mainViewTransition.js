@@ -8,7 +8,7 @@ angular.module('hydrationApp')
           FADE : 'animate_fade',
           SLIDE_RIGHT : 'animate_slide_right',
           SLIDE_LEFT  : 'animate_slide_left',
-          SLIDE_DOWN  : 'animate_slide_down'
+          SLIDE_UP  : 'animate_slide_up'
         };
 
     var transition_classes = Object.keys(transitions).map(

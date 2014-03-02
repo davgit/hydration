@@ -16,7 +16,7 @@ angular.module('hydrationApp')
       $location.path('/');
     }
     $scope.start_button = function() {
-      MainViewTransition.setTransition(MainViewTransition.transitions.SLIDE_LEFT);
+      MainViewTransition.setTransition(MainViewTransition.transitions.SLIDE_UP);
       $location.path('/');
     }
   });
