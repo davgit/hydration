@@ -12,7 +12,7 @@ angular.module('hydrationApp')
     };
 
     $scope.back_button = function() {
-      MainViewTransition.setTransition(MainViewTransition.transitions.SLIDE_LEFT);
+      MainViewTransition.setTransition(MainViewTransition.transitions.SLIDE_RIGHT);
       $location.path('/');
     }
     $scope.start_button = function() {

@@ -5,8 +5,9 @@ angular.module('hydrationApp')
 
   	var view_container = angular.element(document.querySelector('body > div[ng-view]')),
         transitions = {
-          SLIDE_LEFT : 'animate_slide_left',
-          SLIDE_DOWN : 'animate_slide_down'
+          SLIDE_RIGHT : 'animate_slide_right',
+          SLIDE_LEFT  : 'animate_slide_left',
+          SLIDE_DOWN  : 'animate_slide_down'
         };
 
     var transition_classes = Object.keys(transitions).map(

@@ -13,7 +13,7 @@ angular.module('hydrationApp')
     };
 
     $scope.show_settings = function() {
-      MainViewTransition.setTransition(MainViewTransition.transitions.SLIDE_DOWN);
+      MainViewTransition.setTransition(MainViewTransition.transitions.SLIDE_LEFT);
       $location.path('/settings')
     }
 
