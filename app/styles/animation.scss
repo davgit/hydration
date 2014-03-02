@@ -1,5 +1,5 @@
 .animate_slide_left,
-.animate_slide_down{
+.animate_slide_down {
   position: absolute;
   left: 0;
   top: 0;
@@ -58,4 +58,33 @@
   &.ng-leave-active {
     top: 100%;
   }
+}
+
+
+.animate_fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  opacity: 1;
+}
+.animate_fade.ng-enter,
+.animate_fade.ng-leave {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.animate_fade.ng-enter {
+  opacity: 0;
+}
+.animate_fade.ng-enter-active {
+  opacity: 1;
+}
+.animate_fade.ng-leave {
+  opacity: 1;
+}
+.animate_fade.ng-leave-active {
+  opacity: 0;
 }
