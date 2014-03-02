@@ -12,7 +12,7 @@
     <!-- endbuild -->
   </head>
   <body ng-app="hydrationApp">
-    <div class="container animate_slidedown" ng-view=""></div>
+    <div ng-class="view_container_classes" ng-view=""></div>
 
     <script src="bower_components/angular/angular.js"></script>
 
@@ -39,6 +39,7 @@
     <script src="scripts/services/waterRecord.js"></script>
     <script src="scripts/directives/weightSetting.js"></script>
     <script src="scripts/directives/liquidUnit.js"></script>
+    <script src="scripts/services/mainViewTransition.js"></script>
     <!-- endbuild -->
   </body>
 </html>
