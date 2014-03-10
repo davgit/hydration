@@ -9,7 +9,27 @@ $ios7blue: #2087fc;
     font-family: 'elegant-icons';
     font-weight: normal;
     font-style: normal;
-    src: url("images/elegant-icons.woff") format("woff"),url("images/elegant-icons.ttf") format("truetype");
+    src: url("fonts/elegant-icons.woff") format("woff"),url("fonts/elegant-icons.ttf") format("truetype");
+}
+
+// ======= Roboto Font =========== //
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url('fonts/roboto100.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url('fonts/roboto300.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Regular'), local('Roboto-Regular'), url('fonts/roboto400.woff') format('woff');
 }
 
 // ======= Base Styles =========== //
@@ -21,11 +41,12 @@ body {
   padding: 0;
 }
 body, h1, h2 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 100;
 }
 p {
-  font-weight: 200;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
 }
 a {
   text-decoration: none;
