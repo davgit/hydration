@@ -24,7 +24,8 @@ angular.module('hydrationApp', ['ngAnimate', 'ngRoute', 'ngTouch'])
       .otherwise({
         redirectTo: '/'
       })
-  }).run(function($location, $rootScope, waterRecord) {
+  }).run(function($location, $rootScope, waterRecord, device) {
+    // Device used as dependency to set up device specific things
 
     // Save Model
     $rootScope.save_model = function() {
