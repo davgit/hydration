@@ -1,19 +1,20 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .service('device', function Device() {
+  .service('device', function Device(waterRecord) {
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
       document.addEventListener("resume", onResume, false);
-      document.addEventListener("pause", onPause, false);
+      //document.addEventListener("pause", onPause, false);
     }
 
     function onResume() {
-      console.log("resume");
+      // Could be woken up on a different day.
+      waterRecord.init();
+      $rootScope.$apply();
     }
     function onPause() {
-      console.log("pause");
       // scope.$apply to let Angular land take over again
     }
 
