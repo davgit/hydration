@@ -1,14 +1,11 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .service('scales', function scales() {
+  .service('scales', function scales(waterRecord) {
     var height = document.getElementsByTagName("svg")[0].offsetHeight;
 
-    var start_date = new Date(2013, 9, 27, 7);
-    var end_date = new Date(2013, 9, 27, 19);
-
     var time_scale = d3.time.scale()
-          .domain([start_date, end_date])
+          .domain([waterRecord.WORKDAY.START, waterRecord.WORKDAY.END])
           .range([height, 0]);
 
     var linear_scale = d3.scale.linear()

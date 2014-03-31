@@ -3,8 +3,22 @@
 angular.module('hydrationApp')
   .service('waterRecord', function waterRecord($rootScope) {
 
-    var today_amount_percentage = 0,
+    var today = new Date(),
+        today_amount_percentage = 0,
         today_data = {};
+
+    // Set amounts in ml
+    var AMOUNTS = {
+      'LARGE_GLASS' : 350,
+      'SMALL_GLASS' : 200
+    };
+
+    var WORKDAY = {
+      START: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 7),
+      END: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 19)
+    };
+
+
 
     // current weight / 2 = oz to drink per day
     // 206lb == 103 oz
@@ -30,15 +44,9 @@ angular.module('hydrationApp')
       today_amount_percentage = Math.min(today_data.amount_ml / water_target_ml() * 100, 100);
     }
 
-    // Set amounts in ml
-    var AMOUNTS = {
-      'LARGE_GLASS' : 350,
-      'SMALL_GLASS' : 200
-    }
-
-
     return {
       AMOUNTS: AMOUNTS,
+      WORKDAY: WORKDAY,
 
       init: function() { // root
         var today = new Date();
