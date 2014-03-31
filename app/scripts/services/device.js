@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .service('device', function Device(waterRecord, $rootScope) {
+  .service('device', function Device($rootScope, waterRecord) {
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
