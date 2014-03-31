@@ -2,5 +2,10 @@
 
 angular.module('hydrationApp')
   .service('reminders', function Reminders() {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+    return {
+      set_reminder: function(reminder_date) {
+        console.log("Set Reminder");
+        console.log(reminder_date);
+      }
+    }
   });

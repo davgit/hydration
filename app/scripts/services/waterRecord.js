@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hydrationApp')
-  .service('waterRecord', function waterRecord($rootScope) {
+  .service('waterRecord', function waterRecord($rootScope, reminders) {
 
     var today = new Date(),
         today_amount_percentage = 0,
@@ -44,6 +44,31 @@ angular.module('hydrationApp')
       today_amount_percentage = Math.min(today_data.amount_ml / water_target_ml() * 100, 100);
     }
 
+    var reminder_extra = 60*60*1000; // 1 hour - Amount past when water due
+    var update_reminder = function() {
+      var today = new Date();
+
+      // Done for today?
+      if (today_amount_percentage === 100) {
+        // Remind tomorrow morning
+        reminders.set_reminder(new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            today.getDate() + 1,
+            WORKDAY.START.getHours() + 1
+          ));
+      } else {
+        reminders.set_reminder(new Date(
+          // When overdue to drink, or now; whichever is later; + extra_time
+          Math.max(
+            WORKDAY.START.getTime()+((WORKDAY.END - WORKDAY.START)*today_amount_percentage/100)
+            ,
+            new Date().getTime()
+          ) + reminder_extra
+        ));
+      }
+    }
+
     return {
       AMOUNTS: AMOUNTS,
       WORKDAY: WORKDAY,
@@ -81,6 +106,7 @@ angular.module('hydrationApp')
         update_percentage_water();
 
         $rootScope.save_model();
+        update_reminder();
       }
     }
   });
